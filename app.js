@@ -17,17 +17,21 @@ Rock.addEventListener('click', function round() {
     const computerChoice = getComputerChoice();
     let selection = "rock";
     let outcome = document.getElementById("outcome")
+    let compOut = document.getElementById("computer-icon")
 
     console.log("Player's choice is " + selection)
     console.log("Computer's choice is " + computerChoice)
     if (computerChoice == selection) {
         outcome.innerHTML = "Tie!"
+        compOut.src = '/images/rock.png';
     }
     else if (computerChoice == 'paper' && selection == 'rock') {
         outcome.innerHTML = "You lose! paper beats rock!";
+        compOut.src = '/images/paper.png';
     }
     else if (computerChoice == "scissors" && selection == "rock") {
         outcome.innerHTML = "You win! rock beats scissors!";
+        compOut.src = '/images/scissors.png';
     }
     else {
         outcome.innerHTML("Error! Please try again!")
@@ -41,17 +45,21 @@ Paper.addEventListener('click', function round() {
     const computerChoice = getComputerChoice();
     let selection = "paper";
     let outcome = document.getElementById("outcome")
+    let compOut = document.getElementById("computer-icon")
 
     console.log("Player's choice is " + selection)
     console.log("Computer's choice is " + computerChoice)
     if (computerChoice == selection) {
         outcome.innerHTML = "Tie!"
+        compOut.src = '/images/paper.png';
     }
     else if (computerChoice == "rock" && selection == "paper") {
         outcome.innerHTML = "You win! Paper beats rock!";
+        compOut.src = '/images/rock.png';
     }
     else if (computerChoice == "scissors" && selection == "paper") {
         outcome.innerHTML = "You lose! Scissors beats paper!";
+        compOut.src = '/images/scissors.png';
     }
     else {
         outcome.innerHTML("Error! Please try again.")
@@ -65,27 +73,39 @@ Scissors.addEventListener('click', function round() {
     const computerChoice = getComputerChoice();
     let selection = "scissors";
     let outcome = document.getElementById("outcome")
+    let compOut = document.getElementById("computer-icon")
 
     console.log("Player's choice is " + selection)
     console.log("Computer's choice is " + computerChoice)
     if (computerChoice == selection) {
         outcome.innerHTML = "Tie!"
+        compOut.src = '/images/scissors.png';
     }
     else if (computerChoice == 'rock' && selection == 'scissors') {
         outcome.innerHTML = "You lose! Rock beats scissors!" 
+        compOut.src = '/images/rock.png';
     }
     else if (computerChoice == 'paper' && selection == 'scissors') {
         outcome.innerHTML = "You win! Scissors beats paper!"
+        compOut.src = '/images/paper.png';
     }
     else {
         outcome.innerHTML("Error! Please try again.")
     }
 });
 
+function game() {
+    let i = 1
+    for (i = 1; i < 6; i++) {
+        console.log(i)
+        playerSelection = 'rock'
+        round();
+    }
+}
 
 
 
-/* function round() {
+function round() {
     const computerChoice = getComputerChoice();
     let selection = playerSelection.toLowerCase();
 
@@ -115,4 +135,4 @@ Scissors.addEventListener('click', function round() {
     else {
         console.log("null")
     }
-} */
+}
