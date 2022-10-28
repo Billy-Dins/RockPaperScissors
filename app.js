@@ -136,3 +136,5 @@ function round() {
         console.log("null")
     }
 }
+
+/* There's probably a way to merge all this code and clean things up... Idk */
