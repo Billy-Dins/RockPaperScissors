@@ -1,54 +1,88 @@
-
-* {
-    background-color: rgb(39, 37, 68);;
-    text-align: center;
-    align-content: center;
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #232535;
+    font-family: monospace;
+    color: rgb(219, 219, 219);
 }
-h1 {
-    background-color: rgb(39, 37, 68);
-    color: white;
-}
-
 header {
-    padding: 50px;
-    background-color: rgb(39, 37, 68);
-    border: 5px solid white;
+    height: 100px;
+    width: 100%;
+    background-color: #15161b;
+    color: rgb(156, 108, 44);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+article {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-items: center;
 }
 
-.icon {
-    
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-footer {
-    padding: 50px;
-    border: 5px solid white;
+header, main, footer {
+    flex-shrink: 0;
+}
+
+#scoreContainer {
+    margin: 25px;
+}
+
+span {
+    margin: 25px;
+}
+
+button {
+    margin: 25px;
 }
 
 #outcome {
-    color: white;
+    margin: 25px;
 }
-
-#icon-layer {
+#outcomes{
     display: flex;
-    justify-content: center;
-    border: 5px solid white;
+}
+#playerContainer, #computerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
 }
-.icon-box{
+#playerOutcome, #computerOutcome {
+    height: 75px;
+    width: auto;
 }
-.playerBtn, #computer-icon {
-    width: 75px;
-    height: auto;
-    padding: 20px 50px 20px 50px;
+#btnContainer {
+    height: 200px;
+    width: auto;
 }
-.playerBtn:hover {
-    transform: scale(1.25);
+#rock, #paper, #scissors {
+    margin: 25px;
+    border-radius: 10%;
+    border: outset 1px;
+    width: auto;
+    height: 100px;
+    padding: 20px;
 }
-
-#computer-layer{
-    padding: 50px;
-    border: 5px solid white;
+#rock:hover {
+    height: 110px;
+    width: auto;
 }
-#computer-text {
-    color: white;
+#paper:hover{
+    height: 110px;
+    width: auto;
+}
+#scissors:hover {
+    height: 110px;
+    width: auto;
 }

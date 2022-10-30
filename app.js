@@ -1,140 +1,101 @@
-function getComputerChoice() {
-    let randomNumber = Math.floor(Math.random() * 3);
+let playerScore = document.querySelector('#playerScore');
+let computerScore = document.querySelector('#computerScore');
+let outcome = document.querySelector('#outcome');
+const playerBtns = document.querySelector('#btnContainer');
+let playerOutcome = document.querySelector('#playerOutcome');
+let computerOutcome = document.querySelector('#computerOutcome');
+
+
+// This targets the button container and runs the 
+//'round' function with the button selected as player selection
+playerBtns.addEventListener('click', (event) => {
+  const isButton = event.target.nodeName === 'INPUT';
+  if (!isButton) {
+    return;
+  }
+  playerOutcome.setAttribute('src', `images/${event.target.id}.png`)
+  round(event.target.id);
+}) 
+
+//Randomly generates a number between 0 and 3 and returns a value for computer selection
+ComputerChoice = () => {
+    let randomNumber = Math.floor(Math.random()*3)
     switch (randomNumber) {
         case 0:
-            return 'rock'
+            computerOutcome.setAttribute('src', 'images/rock.png')
+            return 'rock';
         case 1:
-            return 'paper'
+            computerOutcome.setAttribute('src', 'images/paper.png')
+            return 'paper';
         case 2:
-            return 'scissors'
+            computerOutcome.setAttribute('src', 'images/scissors.png')
+            return 'scissors';
+    }
+};
+
+playerScore.textContent = `Player: ${0}`
+computerScore.textContent = `Computer: ${0}`
+outcome.textContent = 'First to 5!'
+playerResults = 0
+computerResults = 0
+
+function round(text) {
+    let computerChoice = ComputerChoice();
+    let selection = text
+    if (playerResults < 5 && computerResults < 5){
+        if (computerChoice == selection){
+            outcome.textContent = 'Tie! Play again!'
+        } else if (computerChoice == 'rock' && selection == 'scissors'){
+            outcome.textContent = 'you lose! Rock beats scissors';
+            computerResults += 1;
+        } else if (computerChoice == 'rock' && selection == 'paper') {
+            outcome.textContent = 'you win! Paper beats rock!';
+            playerResults += 1;
+        } else if (computerChoice == 'paper' && selection == 'rock') {
+            outcome.textContent = 'you lose! Paper beats rock!';
+            computerResults += 1;
+        } else if (computerChoice == 'paper' && selection == 'scissors') {
+            outcome.textContent = 'you win! Scissors beats paper!';
+            playerResults += 1;
+        } else if (computerChoice == 'scissors' && selection == 'paper') {
+            outcome.textContent = 'you lose! Scissors beats paper!';
+            computerResults += 1;
+        } else if (computerChoice == 'scissors' && selection == 'rock') {
+            outcome.textContent = 'you win! Rock beats scissors!';
+            playerResults += 1;
+        }
+    }
+    playerScore.textContent = `Player: ${playerResults}`
+    computerScore.textContent = `Computer: ${computerResults}`
+
+    if (playerResults == 5){
+        alert(`You win the game! with a score of ${playerResults} to ${computerResults}!`)
+        playerResults = 0
+        computerResults = 0 
+    } else if (computerResults == 5){
+        alert(`You lose the game! by score of ${computerResults} to ${playerResults}`)
+        playerResults = 0
+        computerResults = 0 
     }
 };
 
 
 
-let Rock = document.getElementById("rock-btn");
-Rock.addEventListener('click', function round() {
-    const computerChoice = getComputerChoice();
-    let selection = "rock";
-    let outcome = document.getElementById("outcome")
-    let compOut = document.getElementById("computer-icon")
 
-    console.log("Player's choice is " + selection)
-    console.log("Computer's choice is " + computerChoice)
-    if (computerChoice == selection) {
-        outcome.innerHTML = "Tie!"
-        compOut.src = '/images/rock.png';
+/* function game(a){ 
+    let i = 1;
+    while (i <= 5) {
+        console.log('round ' + i);
+        round(a)
+        i++
     }
-    else if (computerChoice == 'paper' && selection == 'rock') {
-        outcome.innerHTML = "You lose! paper beats rock!";
-        compOut.src = '/images/paper.png';
+    if (playerResults > computerResults){
+        console.log(`You win the game! with a score of ${playerResults} to ${computerResults}!`)
+    } else if (computerResults > playerResults){
+        console.log(`You lose the game! by score of ${computerResults} to ${playerResults}`)
+    } else {
+        console.log('Tie game! Play again.')
     }
-    else if (computerChoice == "scissors" && selection == "rock") {
-        outcome.innerHTML = "You win! rock beats scissors!";
-        compOut.src = '/images/scissors.png';
-    }
-    else {
-        outcome.innerHTML("Error! Please try again!")
-    }
-});
-
-
-
-let Paper = document.getElementById("paper-btn");
-Paper.addEventListener('click', function round() {
-    const computerChoice = getComputerChoice();
-    let selection = "paper";
-    let outcome = document.getElementById("outcome")
-    let compOut = document.getElementById("computer-icon")
-
-    console.log("Player's choice is " + selection)
-    console.log("Computer's choice is " + computerChoice)
-    if (computerChoice == selection) {
-        outcome.innerHTML = "Tie!"
-        compOut.src = '/images/paper.png';
-    }
-    else if (computerChoice == "rock" && selection == "paper") {
-        outcome.innerHTML = "You win! Paper beats rock!";
-        compOut.src = '/images/rock.png';
-    }
-    else if (computerChoice == "scissors" && selection == "paper") {
-        outcome.innerHTML = "You lose! Scissors beats paper!";
-        compOut.src = '/images/scissors.png';
-    }
-    else {
-        outcome.innerHTML("Error! Please try again.")
-    }
-});
-
-
-
-let Scissors = document.getElementById("scissors-btn");
-Scissors.addEventListener('click', function round() {
-    const computerChoice = getComputerChoice();
-    let selection = "scissors";
-    let outcome = document.getElementById("outcome")
-    let compOut = document.getElementById("computer-icon")
-
-    console.log("Player's choice is " + selection)
-    console.log("Computer's choice is " + computerChoice)
-    if (computerChoice == selection) {
-        outcome.innerHTML = "Tie!"
-        compOut.src = '/images/scissors.png';
-    }
-    else if (computerChoice == 'rock' && selection == 'scissors') {
-        outcome.innerHTML = "You lose! Rock beats scissors!" 
-        compOut.src = '/images/rock.png';
-    }
-    else if (computerChoice == 'paper' && selection == 'scissors') {
-        outcome.innerHTML = "You win! Scissors beats paper!"
-        compOut.src = '/images/paper.png';
-    }
-    else {
-        outcome.innerHTML("Error! Please try again.")
-    }
-});
-
-function game() {
-    let i = 1
-    for (i = 1; i < 6; i++) {
-        console.log(i)
-        playerSelection = 'rock'
-        round();
-    }
-}
-
-
-
-function round() {
-    const computerChoice = getComputerChoice();
-    let selection = playerSelection.toLowerCase();
-
-    console.log("Player's choice is " + selection)
-    console.log("Computer's choice is " + computerChoice)
-    if (computerChoice == selection) {
-        console.log("Tie!")
-    }
-    else if (computerChoice == 'rock' && selection == 'scissors') {
-        console.log("You lose! Rock beats scissors!") 
-    }
-    else if (computerChoice == "rock" && selection == "paper") {
-        console.log("you win! Paper beats rock!")
-    }
-    else if (computerChoice == 'paper' && selection == 'rock') {
-        console.log("You lose! paper beats rock!") 
-    }
-    else if (computerChoice == 'paper' && selection == 'scissors') {
-        console.log("You win! Scissors beats paper!") 
-    }
-    else if (computerChoice == "scissors" && selection == "rock") {
-        console.log("you win! rock beats scissors!")
-    }
-    else if (computerChoice == "scissors" && selection == "paper") {
-        console.log("you lose! Scissors beats paper!")
-    }
-    else {
-        console.log("null")
-    }
-}
-
-/* There's probably a way to merge all this code and clean things up... Idk */
+    playerResults = 0
+    computerResults = 0
+}; */

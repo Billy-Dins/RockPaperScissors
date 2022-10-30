@@ -1,9 +1,11 @@
 # rockpaperscissors
 
 Too do...
-1. Create a RPS game that plays 5 rounds in the console.
-2. Create a display with a running score, announces a winner once player reaches 5 points
+Add a button to reset the webpage back to default settings
+add a new image for the player images before selection
 
+
+Guidelines
 
 1. make a function called getComputerChoice that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’.
 
