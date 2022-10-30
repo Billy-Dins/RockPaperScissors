@@ -2,7 +2,6 @@
 
 Too do...
 Add a button to reset the webpage back to default settings
-add a new image for the player images before selection
 
 
 Guidelines

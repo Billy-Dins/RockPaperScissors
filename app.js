@@ -4,7 +4,8 @@ let outcome = document.querySelector('#outcome');
 const playerBtns = document.querySelector('#btnContainer');
 let playerOutcome = document.querySelector('#playerOutcome');
 let computerOutcome = document.querySelector('#computerOutcome');
-
+playerOutcome.setAttribute('src', 'images/question.png')
+computerOutcome.setAttribute('src', 'images/question.png')
 
 // This targets the button container and runs the 
 //'round' function with the button selected as player selection
@@ -35,7 +36,7 @@ ComputerChoice = () => {
 
 playerScore.textContent = `Player: ${0}`
 computerScore.textContent = `Computer: ${0}`
-outcome.textContent = 'First to 5!'
+outcome.textContent = 'First to score 5 points win!'
 playerResults = 0
 computerResults = 0
 

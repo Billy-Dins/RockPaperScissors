@@ -61,6 +61,7 @@ button {
 #playerOutcome, #computerOutcome {
     height: 75px;
     width: auto;
+    padding: 40px;
 }
 #btnContainer {
     height: 200px;
