@@ -33,19 +33,6 @@ main {
 header, main, footer {
     flex-shrink: 0;
 }
-
-#scoreContainer {
-    margin: 25px;
-}
-
-span {
-    margin: 25px;
-}
-
-button {
-    margin: 25px;
-}
-
 #outcome {
     margin: 25px;
 }

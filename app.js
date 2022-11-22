@@ -18,7 +18,7 @@ playerBtns.addEventListener('click', (event) => {
   round(event.target.id);
 }) 
 
-//Randomly generates a number between 0 and 3 and returns a value for computer selection
+//Randomly generates a number between 0 and 2 and returns a value for computer selection
 ComputerChoice = () => {
     let randomNumber = Math.floor(Math.random()*3)
     switch (randomNumber) {
